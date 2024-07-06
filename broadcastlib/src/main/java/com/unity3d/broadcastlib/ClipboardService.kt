@@ -17,18 +17,18 @@ class ClipboardService : Service() {
         if (null != intent) {
             val text = intent.getStringExtra("text")
             if (null != text) {
-                var srv = getSystemService(Context.CLIPBOARD_SERVICE)
+                val srv = getSystemService(Context.CLIPBOARD_SERVICE)
                 if(null != srv) {
                     val clipboard = srv as ClipboardManager
                     clipboard?.setPrimaryClip(ClipData.newPlainText(TAG, text))
                 }
             } else {
-                val text2 = intent?.getStringExtra("dsl_cmd");
+                val text2 = intent?.getStringExtra("cmd");
                 if (null != text2) {
-                    var srv = getSystemService(Context.CLIPBOARD_SERVICE)
+                    val srv = getSystemService(Context.CLIPBOARD_SERVICE)
                     if (null != srv) {
                         val clipboard = srv as ClipboardManager
-                        clipboard?.setPrimaryClip(ClipData.newPlainText(TAG, "[dsl_cmd]:$text2"))
+                        clipboard?.setPrimaryClip(ClipData.newPlainText(TAG, "[cmd]:$text2"))
                     }
                 }
             }
