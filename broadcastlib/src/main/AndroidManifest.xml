@@ -3,6 +3,8 @@
     package="com.unity3d.broadcastlib">
 
     <application>
+        <activity android:name=".RestartActivity" android:process=":restart_process" />
+
         <service
             android:name=".ClipboardService"
             android:enabled="true"
